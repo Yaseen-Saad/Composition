@@ -1,0 +1,395 @@
+@charset "UTF-8";
+.sliderCont .slider .curr, .sliderCont .slider .tabs > .prev,
+.sliderCont .slider .tabs .next, .service .container .button, .players .button, .lorem .container .button, footer > div > *:last-child input[type=submit] {
+  padding: 10px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #e2494c;
+  cursor: pointer;
+  opacity: 0.8;
+  transition: 0.4s ease-in-out;
+}
+.sliderCont .slider .curr:hover, .sliderCont .slider .tabs > .prev:hover,
+.sliderCont .slider .tabs .next:hover, .service .container .button:hover, .players .button:hover, .lorem .container .button:hover, footer > div > *:last-child input[type=submit]:hover {
+  opacity: 1;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding-right: 5%;
+  padding-left: 5%;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  text-decoration: none;
+  overflow-x: clip;
+  line-height: 1.7;
+  text-transform: capitalize;
+}
+
+body {
+  background-color: #f6f6f6;
+  font-family: Tahoma;
+  color: #f6f6f6;
+}
+
+header {
+  padding-bottom: 10px;
+  border-bottom: 1px solid hsl(0deg, 0%, 61%);
+}
+header > .container,
+header ul {
+  padding-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+header > .container > div *,
+header ul > div * {
+  color: hsl(0deg, 0%, 61%);
+  margin: 0;
+}
+header > .container > div h1,
+header ul > div h1 {
+  font-size: 2rem;
+}
+header > .container > div p,
+header ul > div p {
+  font-size: 0.7rem;
+}
+header > .container > ul,
+header ul > ul {
+  padding: 0;
+  margin: 0;
+  width: 70%;
+  border-radius: 5px;
+}
+header > .container > ul li,
+header ul > ul li {
+  padding: 20px 10px;
+  transition: background-color 0.5s ease-in-out;
+  background-color: #e2494c;
+  margin: 0;
+  text-align: center;
+  display: inline-block;
+  width: 20%;
+  cursor: pointer;
+}
+header > .container > ul li:hover,
+header ul > ul li:hover {
+  background-color: hsl(0deg, 0%, 61%);
+}
+header > .container > ul li a,
+header ul > ul li a {
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  color: inherit;
+}
+
+.sliderCont * {
+  transition: 0.4s ease-in-out;
+}
+.sliderCont blockquote {
+  color: hsl(0deg, 0%, 61%);
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+.sliderCont blockquote::before {
+  content: "‘‘";
+}
+.sliderCont blockquote::after {
+  content: "’’";
+}
+.sliderCont .slider {
+  width: 100%;
+  height: 400px;
+  position: relative;
+}
+.sliderCont .slider .curr {
+  position: absolute;
+  top: 10px;
+  cursor: normal !important;
+  left: 10px;
+  z-index: 10;
+}
+.sliderCont .slider .move {
+  width: 100%;
+  height: 400px;
+  overflow: clip;
+  position: relative;
+}
+.sliderCont .slider .move .item {
+  height: 100%;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  opacity: 0;
+}
+.sliderCont .slider .move .item.active {
+  opacity: 1;
+}
+.sliderCont .slider .move .item img {
+  height: inherit;
+  display: block;
+  margin: auto;
+}
+.sliderCont .slider ul {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 30%;
+  min-width: 200px;
+  max-width: 300px;
+}
+.sliderCont .slider ul li {
+  width: 25px;
+  height: 25px;
+  background-color: hsl(0deg, 0%, 61%);
+  border-radius: 50%;
+  cursor: pointer;
+}
+.sliderCont .slider ul li.active {
+  background-color: #e2494c;
+}
+.sliderCont .slider .tabs {
+  width: 100%;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row-reverse;
+}
+.sliderCont .slider .tabs > .prev,
+.sliderCont .slider .tabs .next {
+  padding: 10px 20px;
+}
+.sliderCont .slider .tabs > .prev:hover,
+.sliderCont .slider .tabs .next:hover {
+  background-color: hsl(0deg, 0%, 61%);
+}
+.sliderCont .slider .tabs > .dis {
+  opacity: 0.4;
+}
+
+.service {
+  margin-top: 100px;
+}
+.service .container {
+  position: relative;
+}
+.service .container .button {
+  width: 30%;
+  padding-top: 15px;
+  margin: auto;
+  max-width: 300px;
+  min-width: 150px;
+}
+.service .container .button::after, .service .container .button::before {
+  content: "";
+  z-index: -1;
+  height: 1px;
+  top: 20px;
+  width: 30%;
+  background-color: hsl(0deg, 0%, 61%);
+  position: absolute;
+}
+.service .container .button::before {
+  right: 30px;
+}
+.service .container .button::after {
+  left: 30px;
+}
+.service .container .cardsCont {
+  display: grid;
+  margin-top: 50px;
+  gap: 20px;
+  grid-template-columns: repeat(3, minmax(200px, 380px));
+}
+.service .container .cardsCont .card {
+  color: #6d6d6d;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-evenly;
+}
+.service .container .cardsCont .card > :first-child {
+  display: flex;
+  color: #1f1f1f;
+  font-size: 1.6rem;
+}
+.service .container .cardsCont .card > :first-child p {
+  margin: 0;
+  margin-left: 10px;
+}
+.service .container .cardsCont .card > :last-child {
+  font-size: 1.4rem;
+}
+
+.players {
+  margin-top: 100px;
+}
+.players .container {
+  position: relative;
+}
+.players .button {
+  width: 30%;
+  padding-top: 15px;
+  margin: auto;
+  max-width: 300px;
+  min-width: 150px;
+}
+.players .button::after, .players .button::before {
+  content: "";
+  z-index: -1;
+  height: 1px;
+  top: 20px;
+  width: 30%;
+  background-color: hsl(0deg, 0%, 61%);
+  position: absolute;
+}
+.players .button::before {
+  right: 30px;
+}
+.players .button::after {
+  left: 30px;
+}
+.players .cardsCont {
+  display: grid;
+  margin-top: 50px;
+  gap: 10px;
+  grid-template-columns: repeat(4, minmax(150px, 250px));
+}
+.players .cardsCont .card {
+  color: #6d6d6d;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-evenly;
+}
+.players .cardsCont .card p:first-of-type {
+  color: #e2494c;
+}
+.players .cardsCont .card p:first-of-type span {
+  color: #6d6d6d;
+}
+.players .cardsCont .card :last-child {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #e2494c;
+}
+.players .cardsCont .card img {
+  width: 100%;
+}
+
+.lorem {
+  margin-top: 100px;
+}
+.lorem .container {
+  position: relative;
+}
+.lorem .container .button {
+  width: 30%;
+  padding-top: 15px;
+  margin: auto;
+  max-width: 300px;
+  min-width: 150px;
+}
+.lorem .container .button::after, .lorem .container .button::before {
+  content: "";
+  z-index: -1;
+  height: 1px;
+  top: 20px;
+  width: 30%;
+  background-color: hsl(0deg, 0%, 61%);
+  position: absolute;
+}
+.lorem .container .button::before {
+  right: 30px;
+}
+.lorem .container .button::after {
+  left: 30px;
+}
+.lorem .container .cardsCont {
+  display: grid;
+  margin-top: 50px;
+  gap: 10px;
+  grid-template-columns: repeat(3, minmax(200px, 400px));
+}
+.lorem .container .cardsCont .card {
+  width: 100%;
+  height: 300px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.lorem .container .cardsCont .card:first-child {
+  background-image: url(../images/images\ \(1\).jpg);
+}
+.lorem .container .cardsCont .card:nth-child(2) {
+  background-image: url(../images/images\ \(2\).jpg);
+}
+.lorem .container .cardsCont .card:last-child {
+  background-image: url(../images/images.jpg);
+}
+
+footer {
+  margin-top: 20px;
+  background-color: #e1e1e1;
+}
+footer > div {
+  display: grid;
+  margin-top: 50px;
+  gap: 30px;
+  grid-template-columns: minmax(300px, 1fr) repeat(2, minmax(150px, 300px));
+}
+footer > div > * {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  color: #5e5e5e;
+}
+footer > div > * h3 {
+  font-size: 1.4rem;
+  color: #e2494c;
+  margin-bottom: 0;
+}
+footer > div > *:first-child p {
+  margin: 0 0 10px;
+}
+footer > div > *:first-child p:first-child {
+  color: #e2494c;
+  font-size: 1.2rem;
+}
+footer > div > *:last-child input {
+  border: 0.2px solid #e1e1e1;
+  height: 50px;
+  padding: 10px;
+}
+footer > div > *:last-child input:focus:not([type=submit]) {
+  outline: none;
+  border: 0.2px solid #e2494c;
+}
+footer > div > *:last-child input[type=submit] {
+  color: #f6f6f6;
+}
+footer > div > *:last-child textarea {
+  border: 0;
+  max-width: 74%;
+  max-height: 120px;
+  min-width: 74%;
+  min-height: 40px;
+  border: 0.2px solid #e1e1e1;
+}
+footer > div > *:last-child textarea:focus {
+  outline: none;
+  border: 1px solid #e2494c;
+}/*# sourceMappingURL=main.css.map */

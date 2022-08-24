@@ -1,0 +1,4 @@
+header > .container, header ul {
+  text-align: end;
+  flex-direction: row-reverse;
+}/*# sourceMappingURL=main-rtl.css.map */

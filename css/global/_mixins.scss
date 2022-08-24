@@ -1,0 +1,62 @@
+@use './glopal\ rules' as *;
+
+/// Prefixer
+/// @param {property,value}
+
+@mixin prefixer ($property,$value){
+    #{$property}:#{$value} ;
+    -webkit-#{$property}:#{$value} ;
+    -moz-#{$property}:#{$value} ;
+    -o-#{$property}:#{$value} ;
+    -ms-#{$property}:#{$value} ;
+}
+/// Meida
+/// @param {size:mobile || Tablet || laptop ||Desktop || Xlarge}
+
+@mixin media($size) {
+    @if $size == mobile{
+        @media #{$mobile} {
+            @content;
+    }}
+    @else if $size == Tablet{
+        @media #{$Tablet} {
+            @content;
+    }}
+    @else if $size == laptop{
+        @media #{$laptop} {
+            @content;
+    }}
+    @else if $size == Desktop{
+        @media #{$Desktop} {
+            @content;
+    }}
+    @else if $size == Xlarge{
+        @media #{$Xlarge} {
+            @content;
+    }}
+    
+}
+@mixin KeyFrame($name) {
+    @-webkit-keyframes #{$name}{
+        @content;
+    }
+    @-moz-keyframes #{$name}{
+        @content;
+    }
+    @keyframes #{$name}{
+        @content;
+    }
+}
+
+@function shade($color, $percentage) {
+    @return mix(black, $color, $percentage);
+  }
+
+
+
+
+
+
+
+
+

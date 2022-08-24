@@ -1,0 +1,379 @@
+@use "./global/mixins" as *;
+@use "./global/layout" as *;
+@use "./global/glopal\ rules"as *;
+* {
+  @include prefixer(box-sizing, border-box);
+  text-decoration: none;
+  overflow-x: clip;
+line-height: 1.7;
+  text-transform: capitalize;
+}
+body {
+  background-color: #f6f6f6;
+  font-family: Tahoma;
+  color: #f6f6f6;
+}
+header {
+  padding-bottom: 10px;
+  border-bottom: 1px solid $secColor;
+  > .container,
+  ul {
+    padding-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    > div {
+      * {
+        color: $secColor;
+        margin: 0;
+      }
+      h1 {
+        font-size: 2rem;
+      }
+      p {
+        font-size: 0.7rem;
+      }
+    }
+    > ul {
+      padding: 0;
+      margin: 0;
+      width: 70%;
+      border-radius: 5px;
+      li {
+        padding: 20px 10px;
+        transition: background-color 0.5s ease-in-out;
+        background-color: $mainColor;
+        margin: 0;
+        text-align: center;
+        display: inline-block;
+        width: calc(100% / 5);
+        cursor: pointer;
+        &:hover {
+          background-color: $secColor;
+        }
+        a {
+          width: 100%;
+          height: 100%;
+          text-decoration: none;
+          color: inherit;
+        }
+      }
+    }
+  }
+}
+.sliderCont {
+  * {
+    transition: 0.4s ease-in-out;
+  }
+  blockquote {
+    color: $secColor;
+    font-weight: 600;
+    font-size: 1.2rem;
+    &::before {
+      content: "‘‘";
+    }
+    &::after {
+      content: "’’";
+    }
+  }
+  .slider {
+    width: 100%;
+    height: 400px;
+    position: relative;
+    .curr {
+      position: absolute;
+      @extend %sampleButton;
+      top: 10px;
+      cursor: normal !important;
+      left: 10px;
+      z-index: 10;
+    }
+    .move {
+      width: 100%;
+      height: 400px;
+      overflow: clip;
+      position: relative;
+      .item {
+        height: 100%;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        opacity: 0;
+        &.active {
+          opacity: 1;
+        }
+        img {
+          height: inherit;
+          display: block;
+          margin: auto;
+        }
+      }
+    }
+    ul {
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      width: 30%;
+      min-width: 200px;
+      max-width: 300px;
+      li {
+        width: 25px;
+        height: 25px;
+        background-color: $secColor;
+        border-radius: 50%;
+        cursor: pointer;
+        &.active {
+          background-color: $mainColor;
+        }
+      }
+    }
+    .tabs {
+      width: 100%;
+      font-size: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-direction: row-reverse;
+      > .prev,
+      .next {
+        @extend %sampleButton;
+        padding: 10px 20px;
+        &:hover {
+          background-color: $secColor;
+        }
+      }
+      > .dis {
+        opacity: 0.4;
+      }
+    }
+  }
+}
+.service {
+  margin-top: 100px;
+  .container {
+    position: relative;
+    .button {
+      @extend %sampleButton;
+      width: 30%;
+      padding-top: 15px;
+      margin: auto;
+      max-width: 300px;
+      min-width: 150px;
+      &::after,
+      &::before {
+        content: "";
+        z-index: -1;
+        height: 1px;
+        top: 20px;
+        width: 30%;
+        background-color: $secColor;
+        position: absolute;
+      }
+      &::before {
+        right: 30px;
+      }
+      &::after {
+        left: 30px;
+      }
+    }
+    .cardsCont {
+      display: grid;
+      margin-top: 50px;
+      gap: 20px;
+      grid-template-columns: repeat(3, minmax(200px, 380px));
+      .card {
+        color: shade($secColor, 30%);
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: space-evenly;
+        > :first-child {
+          display: flex;
+          color: shade($secColor, 80%);
+          font-size: 1.6rem;
+          p {
+            margin: 0 {
+              left: 10px;
+            }
+          }
+        }
+        > :last-child {
+          font-size: 1.4rem;
+        }
+      }
+    }
+  }
+}
+.players {
+  margin-top: 100px;
+  .container {
+    position: relative;
+  }
+  .button {
+    @extend %sampleButton;
+    width: 30%;
+    padding-top: 15px;
+    margin: auto;
+    max-width: 300px;
+    min-width: 150px;
+    &::after,
+    &::before {
+      content: "";
+      z-index: -1;
+      height: 1px;
+      top: 20px;
+      width: 30%;
+      background-color: $secColor;
+      position: absolute;
+    }
+    &::before {
+      right: 30px;
+    }
+    &::after {
+      left: 30px;
+    }
+  }
+  .cardsCont {
+    display: grid;
+    margin-top: 50px;
+    gap: 10px;
+    grid-template-columns: repeat(4, minmax(150px, 250px));
+    .card {
+      color: shade($secColor, 30%);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: space-evenly;
+      p:first-of-type {
+        color: $mainColor;
+        span {
+          color: shade($secColor, 30%);
+        }
+      }
+
+      :last-child {
+        margin: 0;
+        font-size: 1.2rem;
+        color: $mainColor;
+      }
+
+      img {
+        width: 100%;
+      }
+    }
+  }
+}
+.lorem{
+margin-top: 100px;
+.container{
+    position: relative;
+    .button {
+        @extend %sampleButton;
+        width: 30%;
+        padding-top: 15px;
+        margin: auto;
+        max-width: 300px;
+        min-width: 150px;
+        &::after,
+        &::before {
+          content: "";
+          z-index: -1;
+          height: 1px;
+          top: 20px;
+          width: 30%;
+          background-color: $secColor;
+          position: absolute;
+        }
+        &::before {
+          right: 30px;
+        }
+        &::after {
+          left: 30px;
+        }
+      }
+      .cardsCont {
+        display: grid;
+        margin-top: 50px;
+        gap: 10px;
+        grid-template-columns: repeat(3, minmax(200px, 400px));
+        .card{
+width: 100%;
+height: 300px;  
+background-repeat: no-repeat;
+background-size: cover;
+
+        &:first-child{
+            background-image: url(../images/images\ \(1\).jpg);
+        }  
+        &:nth-child(2){
+            background-image: url(../images/images\ \(2\).jpg);        
+        }  
+        &:last-child{
+            background-image: url(../images/images.jpg);
+        }
+    }  
+    }
+    }
+}
+
+footer{
+    margin-top: 20px;
+    background-color: mix(white,$secColor,70%);
+    >div{
+        display: grid;
+        margin-top: 50px;
+        gap: 30px;
+        grid-template-columns: minmax(300px,1fr) repeat(2, minmax(150px, 300px));
+   >*{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+color :mix(black,$secColor,40%);
+h3{
+    font-size: 1.4rem;
+    color: $mainColor;
+    margin-bottom: 0;
+}
+&:first-child{
+   p{
+        margin: 0 0 10px ;
+        
+        &:first-child{
+            color: $mainColor;
+            font-size: 1.2rem;
+        }
+    }
+}
+&:last-child{
+    input{
+        border:.2px solid  mix(white,$secColor,70%)
+;
+height: 50px;
+padding: 10px;
+        &:focus:not([type = submit]){
+            outline: none;
+            border:.2px solid $mainColor
+        }
+        &[type = submit]{
+           @extend %sampleButton;
+           color: #f6f6f6;
+        }
+    }
+    textarea{
+        border: 0;
+        max-width: 74%;
+        max-height: 120px;
+        min-width: 74%;
+        min-height: 40px;
+        border:.2px solid  mix(white,$secColor,70%);
+        &:focus{
+            outline: none;
+            border:1px solid $mainColor
+
+        }
+    }
+}
+}
+}
+}
