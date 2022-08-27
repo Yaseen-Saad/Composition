@@ -42,7 +42,7 @@
   gap: 10px;
   grid-template-columns: repeat(4, minmax(150px, 300px));
   @include media(Tablet){
-  grid-template-columns: repeat(2, minmax(250px, 350px));
+  grid-template-columns: repeat(2, minmax(200px, 350px));
 }  
 @include media(mobile){
   grid-template-columns: 1fr;
@@ -150,6 +150,7 @@ height: fit-content;
     display: none;
     @include media(laptopS){
 width: 70px;
+cursor: pointer;
 height: 80px;
 display: flex;
 justify-content: space-evenly;

@@ -53,7 +53,7 @@ footer > div, .lorem .container .cardsCont, .service .container .cardsCont {
 }
 @media (min-width:481px) and (max-width:768px) {
   .players .cardsCont {
-    grid-template-columns: repeat(2, minmax(250px, 350px));
+    grid-template-columns: repeat(2, minmax(200px, 350px));
   }
 }
 @media (max-width:480px) {
@@ -180,6 +180,7 @@ header .toggler {
 @media (max-width:1024px) {
   header .toggler {
     width: 70px;
+    cursor: pointer;
     height: 80px;
     display: flex;
     justify-content: space-evenly;
