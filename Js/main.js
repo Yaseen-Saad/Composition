@@ -69,3 +69,26 @@ dots.forEach((ele) => {
 prev.onclick = prevS;
 next.onclick = nextS;
 //
+
+let toggler = document.querySelector(".toggler"),
+  nav = document.querySelector("header ul"),
+  bodyElements = Array.from(document.body.children);
+// toggler = document.querySelector('.toggler');
+let clickNum = 0;
+toggler.addEventListener("click", (_) => {
+  nav.classList.toggle("active");
+  toggler.classList.toggle("active");
+  let scroll = scrollY || pageYOffset || document.documentElement.scrollTop;
+  onscroll = function () {
+    clickNum % 2 !== 0
+      ? scrollTo({
+          top: scroll,
+        })
+      : "";
+  };
+  for (let i = 0; i < bodyElements.length; i++) {
+    bodyElements[i].classList.toggle("active");
+  }
+  clickNum++;
+});
+onscroll = function () {};

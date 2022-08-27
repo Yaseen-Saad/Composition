@@ -1,6 +1,6 @@
 @charset "UTF-8";
-.sliderCont .slider .curr, .sliderCont .slider .tabs > .prev,
-.sliderCont .slider .tabs .next, .service .container .button, .players .button, .lorem .container .button, footer > div > *:last-child input[type=submit] {
+footer > div > *:last-child input[type=submit], .lorem .container .button, .players .button, .service .container .button, .sliderCont .slider .tabs > .prev,
+.sliderCont .slider .tabs .next, .sliderCont .slider .curr {
   padding: 10px;
   border-radius: 8px;
   display: flex;
@@ -11,16 +11,55 @@
   opacity: 0.8;
   transition: 0.4s ease-in-out;
 }
-.sliderCont .slider .curr:hover, .sliderCont .slider .tabs > .prev:hover,
-.sliderCont .slider .tabs .next:hover, .service .container .button:hover, .players .button:hover, .lorem .container .button:hover, footer > div > *:last-child input[type=submit]:hover {
+footer > div > *:last-child input[type=submit]:hover, .lorem .container .button:hover, .players .button:hover, .service .container .button:hover, .sliderCont .slider .tabs > .prev:hover,
+.sliderCont .slider .tabs .next:hover, .sliderCont .slider .curr:hover {
   opacity: 1;
 }
 
 .container {
   max-width: 1200px;
   margin: auto;
+  box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  -o-box-sizing: content-box;
+  -ms-box-sizing: content-box;
   padding-right: 5%;
   padding-left: 5%;
+}
+
+footer > div, .lorem .container .cardsCont, .service .container .cardsCont {
+  display: grid;
+  margin-top: 50px;
+  gap: 20px;
+  grid-template-columns: repeat(3, minmax(200px, 380px));
+}
+@media (min-width:481px) and (max-width:768px) {
+  footer > div, .lorem .container .cardsCont, .service .container .cardsCont {
+    grid-template-columns: repeat(2, minmax(200px, 380px));
+  }
+}
+@media (max-width:480px) {
+  footer > div, .lorem .container .cardsCont, .service .container .cardsCont {
+    grid-template-columns: 1fr;
+  }
+}
+
+.players .cardsCont {
+  display: grid;
+  margin-top: 50px;
+  gap: 10px;
+  grid-template-columns: repeat(4, minmax(150px, 250px));
+}
+@media (min-width:481px) and (max-width:768px) {
+  .players .cardsCont {
+    grid-template-columns: repeat(2, minmax(150px, 250px));
+  }
+}
+@media (max-width:480px) {
+  .players .cardsCont {
+    grid-template-columns: 1fr;
+  }
 }
 
 * {
@@ -30,7 +69,6 @@
   -o-box-sizing: border-box;
   -ms-box-sizing: border-box;
   text-decoration: none;
-  overflow-x: clip;
   line-height: 1.7;
   text-transform: capitalize;
 }
@@ -38,61 +76,131 @@
 body {
   background-color: #f6f6f6;
   font-family: Tahoma;
+  position: relative;
   color: #f6f6f6;
+}
+body > * {
+  right: 0;
+  transition: 0.6s ease-in-out;
+  position: relative;
+}
+body > .active {
+  right: 200px;
 }
 
 header {
   padding-bottom: 10px;
   border-bottom: 1px solid hsl(0deg, 0%, 61%);
 }
-header > .container,
-header ul {
+header > .container {
   padding-top: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-header > .container > div *,
-header ul > div * {
+header > .container > div * {
   color: hsl(0deg, 0%, 61%);
   margin: 0;
 }
-header > .container > div h1,
-header ul > div h1 {
+header > .container > div h1 {
   font-size: 2rem;
 }
-header > .container > div p,
-header ul > div p {
+header > .container > div p {
   font-size: 0.7rem;
 }
-header > .container > ul,
-header ul > ul {
+header > .container > ul {
   padding: 0;
   margin: 0;
   width: 70%;
+  padding-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   border-radius: 5px;
 }
-header > .container > ul li,
-header ul > ul li {
+@media (max-width:1024px) {
+  header > .container > ul {
+    width: 200px;
+    flex-direction: column;
+    top: 0;
+    right: -200px;
+    transition: 0.6s ease-in-out;
+    position: fixed;
+    height: 100vh;
+    border-radius: 0;
+    background-color: #e2494c;
+    z-index: 300;
+  }
+  header > .container > ul.active {
+    right: 0px;
+  }
+}
+header > .container > ul li {
   padding: 20px 10px;
   transition: background-color 0.5s ease-in-out;
   background-color: #e2494c;
   margin: 0;
-  text-align: center;
-  display: inline-block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 20%;
   cursor: pointer;
 }
-header > .container > ul li:hover,
-header ul > ul li:hover {
+@media (max-width:1024px) {
+  header > .container > ul li {
+    width: 100%;
+    font-size: 1.5rem;
+    height: 20%;
+  }
+}
+header > .container > ul li:hover {
   background-color: hsl(0deg, 0%, 61%);
 }
-header > .container > ul li a,
-header ul > ul li a {
+header > .container > ul li a {
   width: 100%;
   height: 100%;
+  text-align: center;
   text-decoration: none;
   color: inherit;
+}
+@media (max-width:1024px) {
+  header > .container > ul li a {
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+  }
+}
+header .toggler {
+  flex-direction: column;
+  display: none;
+}
+@media (max-width:1024px) {
+  header .toggler {
+    width: 70px;
+    height: 80px;
+    display: flex;
+    justify-content: space-evenly;
+  }
+  header .toggler.active span:first-child {
+    transform: rotate(45deg) translate(20px, 25px);
+  }
+  header .toggler.active span:nth-child(2) {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  header .toggler.active span:last-child {
+    transform: rotate(-45deg) translate(5px, -11px);
+  }
+}
+@media (max-width:1024px) {
+  header .toggler span {
+    height: 7%;
+    opacity: 1;
+    background-color: #e2494c;
+  }
 }
 
 .sliderCont * {
@@ -144,6 +252,9 @@ header ul > ul li a {
 }
 .sliderCont .slider ul {
   display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 20px 0 0;
   justify-content: space-evenly;
   align-items: center;
   width: 30%;
@@ -168,6 +279,22 @@ header ul > ul li a {
   justify-content: space-between;
   flex-direction: row-reverse;
 }
+@media (max-width:480px) {
+  .sliderCont .slider .tabs {
+    flex-wrap: wrap;
+    margin-top: 20px;
+    justify-content: space-evenly;
+  }
+  .sliderCont .slider .tabs .prev {
+    order: 2;
+  }
+  .sliderCont .slider .tabs .next {
+    order: 1;
+  }
+  .sliderCont .slider .tabs ul {
+    order: 3;
+  }
+}
 .sliderCont .slider .tabs > .prev,
 .sliderCont .slider .tabs .next {
   padding: 10px 20px;
@@ -182,6 +309,11 @@ header ul > ul li a {
 
 .service {
   margin-top: 100px;
+}
+@media (max-width:480px) {
+  .service {
+    margin-top: 200px;
+  }
 }
 .service .container {
   position: relative;
@@ -202,17 +334,17 @@ header ul > ul li a {
   background-color: hsl(0deg, 0%, 61%);
   position: absolute;
 }
+@media (max-width:480px) {
+  .service .container .button::after, .service .container .button::before {
+    display: none;
+    width: 0;
+  }
+}
 .service .container .button::before {
   right: 30px;
 }
 .service .container .button::after {
   left: 30px;
-}
-.service .container .cardsCont {
-  display: grid;
-  margin-top: 50px;
-  gap: 20px;
-  grid-template-columns: repeat(3, minmax(200px, 380px));
 }
 .service .container .cardsCont .card {
   color: #6d6d6d;
@@ -256,17 +388,17 @@ header ul > ul li a {
   background-color: hsl(0deg, 0%, 61%);
   position: absolute;
 }
+@media (max-width:480px) {
+  .players .button::after, .players .button::before {
+    width: 0;
+    display: none;
+  }
+}
 .players .button::before {
   right: 30px;
 }
 .players .button::after {
   left: 30px;
-}
-.players .cardsCont {
-  display: grid;
-  margin-top: 50px;
-  gap: 10px;
-  grid-template-columns: repeat(4, minmax(150px, 250px));
 }
 .players .cardsCont .card {
   color: #6d6d6d;
@@ -312,17 +444,17 @@ header ul > ul li a {
   background-color: hsl(0deg, 0%, 61%);
   position: absolute;
 }
+@media (max-width:480px) {
+  .lorem .container .button::after, .lorem .container .button::before {
+    display: none;
+    width: 0;
+  }
+}
 .lorem .container .button::before {
   right: 30px;
 }
 .lorem .container .button::after {
   left: 30px;
-}
-.lorem .container .cardsCont {
-  display: grid;
-  margin-top: 50px;
-  gap: 10px;
-  grid-template-columns: repeat(3, minmax(200px, 400px));
 }
 .lorem .container .cardsCont .card {
   width: 100%;
@@ -344,18 +476,17 @@ footer {
   margin-top: 20px;
   background-color: #e1e1e1;
 }
-footer > div {
-  display: grid;
-  margin-top: 50px;
-  gap: 30px;
-  grid-template-columns: minmax(300px, 1fr) repeat(2, minmax(150px, 300px));
-}
 footer > div > * {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: flex-start;
   color: #5e5e5e;
+}
+@media (max-width:480px) {
+  footer > div > * > * {
+    margin-top: 20px;
+  }
 }
 footer > div > * h3 {
   font-size: 1.4rem;
