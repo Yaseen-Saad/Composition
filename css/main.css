@@ -49,11 +49,11 @@ footer > div, .lorem .container .cardsCont, .service .container .cardsCont {
   display: grid;
   margin-top: 50px;
   gap: 10px;
-  grid-template-columns: repeat(4, minmax(150px, 250px));
+  grid-template-columns: repeat(4, minmax(150px, 300px));
 }
 @media (min-width:481px) and (max-width:768px) {
   .players .cardsCont {
-    grid-template-columns: repeat(2, minmax(150px, 250px));
+    grid-template-columns: repeat(2, minmax(250px, 350px));
   }
 }
 @media (max-width:480px) {

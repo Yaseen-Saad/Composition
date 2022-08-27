@@ -40,9 +40,9 @@
   display: grid;
   margin-top: 50px;
   gap: 10px;
-  grid-template-columns: repeat(4, minmax(150px, 250px));
+  grid-template-columns: repeat(4, minmax(150px, 300px));
   @include media(Tablet){
-  grid-template-columns: repeat(2, minmax(150px, 250px));
+  grid-template-columns: repeat(2, minmax(250px, 350px));
 }  
 @include media(mobile){
   grid-template-columns: 1fr;
